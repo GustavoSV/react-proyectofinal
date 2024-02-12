@@ -1,0 +1,14 @@
+.contenedortituloTienda {
+    background-color: rgb(4, 88, 136);
+    display: flex;
+    flex-direction: column;
+}
+
+.tituloTienda {
+    height: 80px;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}

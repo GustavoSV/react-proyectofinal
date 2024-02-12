@@ -1,0 +1,36 @@
+.contenedorItem {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    width: 250px;
+    height: 450px;
+    margin: 20px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(4, 88, 136);
+}
+
+.contenedorItem img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.contenedorbotonVerDetalle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonVerDetalle {
+    display: flex;
+    width: 70%;
+    height: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(120, 197, 242);
+    margin-left: 10px;
+    margin-right: 10px;
+}
