@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCM9_21PHNI376i70lVzzRlzYJYJxyMUhc",
+  apiKey: import.meta.env.VITE_API_KEY_FIREBASE_CONFIG,
   authDomain: "music-vinils.firebaseapp.com",
   projectId: "music-vinils",
   storageBucket: "music-vinils.appspot.com",

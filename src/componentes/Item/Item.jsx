@@ -10,6 +10,7 @@ const Item = ({id, titulo, autor, genero, tipo, idioma, stock, precio, img}) => 
           <h3>Album: {titulo} </h3>
           <p>Autor: {autor} </p>
           <p>Precio: {precio} </p>
+          <p>Existencia: {stock} </p>
           <div className="contenedorbotonVerDetalle">
             <div className='botonVerDetalle'>
               <Link to={`/item/${id}`}> Ver Detalles </Link>
