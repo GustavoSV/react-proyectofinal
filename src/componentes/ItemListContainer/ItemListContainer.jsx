@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import ItemList from '../ItemList/ItemList'
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
-import { getProductos, getProductoCategoria } from '../../asyncmock'
+import { db } from '../../services/config'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
 import './ItemListContainer.css'
 
@@ -10,12 +11,20 @@ const ItemListContainer = () => {
 
     const {idCategoria} = useParams();
 
-    useEffect( () => {
-        const funcionTraerProductos = idCategoria ? getProductoCategoria : getProductos;
+    useEffect(() => {
+      const miCatalogo = idCategoria ? 
+        query(collection(db, "catalogo"), where("genero", "==", idCategoria)) : 
+        query(collection(db, "catalogo"));
 
-        funcionTraerProductos(idCategoria)
-            .then(resolve => setProductos(resolve))
-            .catch(error => console.error(error))
+      getDocs(miCatalogo)
+        .then(res => {
+          const itemsCatalogo = res.docs.map(doc => {
+            const data = doc.data();
+            return {id: doc.id, ...data};
+          })
+          setProductos(itemsCatalogo);
+        })
+        .catch(error => console.error(error))
     }, [idCategoria]);
 
   return (

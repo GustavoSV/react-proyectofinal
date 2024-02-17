@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import "./ItemDetail.css";
+// importamos CarritoContext
+import { CartContext } from "../../context/CartContext";
 
 const ItemDetail = ({id, titulo, autor, genero, tipo, idioma, stock, precio, img }) => {
   const [kComprada, setKComprada] = useState(0);
 
+  // usamos el CartContext para traer la función de agregar al carrito
+  const {agregarAlCarrito} = useContext(CartContext);
+
   const manejadorKComprada = (cantidad) => {
     setKComprada(cantidad);
-    console.log("Cantidad comprada: ", cantidad);
+    // console.log("Cantidad comprada: ", cantidad);
+    const item = {id, titulo, precio};
+    agregarAlCarrito(item, cantidad);
   }
 
   return (

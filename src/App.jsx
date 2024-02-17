@@ -4,21 +4,22 @@ import ItemListContainer from './componentes/ItemListContainer/ItemListContainer
 import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // importamos nuestro proveedor de contexto
-// import { CarritoProvider } from './context/CarritoContext'
+import { CartProvider } from './context/CartContext'
+import Cart from './componentes/Cart/Cart'
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        {/* <CarritoProvider> */}
+        <CartProvider>
           <NavBar/>
           <Routes>
             <Route path='/' element={<ItemListContainer />} />
             <Route path='/categoria/:idCategoria' element={<ItemListContainer />} />
             <Route path='/item/:idItem' element={<ItemDetailContainer />} />
-            <Route path='/cart' element={<h2>Carrito en construcción!</h2>} />
+            <Route path='/cart' element={<Cart/>} />
           </Routes>
-        {/* </CarritoProvider> */}
+        </CartProvider>
       </BrowserRouter>
     </>
   )
