@@ -5,9 +5,12 @@ import { Link, NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <header>
-        <NavLink to="/">
-            <h1>Music Vinils</h1>
-        </NavLink>
+        <div className="contenedorLogo">
+            <NavLink to="/">
+                <img className='logo' src="./img/Logo MusicVinils.jpg" alt="Logo MusicVinils" />
+                <span className="tituloLogo">Music Vinils</span>
+            </NavLink>
+        </div>
         <nav>
             <ul>
                 <li>

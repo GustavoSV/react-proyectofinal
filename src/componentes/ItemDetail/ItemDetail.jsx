@@ -13,8 +13,7 @@ const ItemDetail = ({id, titulo, autor, genero, tipo, idioma, stock, precio, img
 
   const manejadorKComprada = (cantidad) => {
     setKComprada(cantidad);
-    // console.log("Cantidad comprada: ", cantidad);
-    const item = {id, titulo, precio};
+    const item = {id, titulo, img, precio};
     agregarAlCarrito(item, cantidad);
   }
 
